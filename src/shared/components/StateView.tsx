@@ -17,7 +17,7 @@ export const EmptyState = ({ title, message, action }: StateViewProps) => (
 );
 
 export const LoadingState = () => (
-  <div className="rounded-lg border border-line bg-white p-6 text-sm text-slate-600 shadow-panel">Loading records...</div>
+  <div className="rounded-lg border border-line bg-white p-6 text-sm text-slate-600 shadow-panel">Đang tải dữ liệu...</div>
 );
 
 export const ErrorState = ({ title, message }: Pick<StateViewProps, 'title' | 'message'>) => (

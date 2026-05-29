@@ -12,7 +12,7 @@ export const validateUniqueStudentEmail = (
   );
 
   if (duplicate) {
-    return failure('DUPLICATE_EMAIL', 'A student with this email already exists.');
+    return failure('DUPLICATE_EMAIL', 'Email này đã được dùng cho một học viên khác.');
   }
 
   return success(normalizedEmail);

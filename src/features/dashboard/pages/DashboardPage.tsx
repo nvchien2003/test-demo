@@ -10,8 +10,8 @@ export const DashboardPage = () => {
   return (
     <div className="grid gap-5">
       <div>
-        <h1 className="text-2xl font-semibold text-ink">Dashboard</h1>
-        <p className="mt-1 text-sm text-slate-600">Live operational snapshot from the browser data store.</p>
+        <h1 className="text-2xl font-semibold text-ink">Tổng quan</h1>
+        <p className="mt-1 text-sm text-slate-600">Ảnh chụp vận hành theo thời gian thực từ dữ liệu trên trình duyệt.</p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
         {cards.map((card) => (

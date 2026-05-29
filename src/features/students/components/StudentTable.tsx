@@ -34,10 +34,10 @@ const StudentRow = memo(({ student, onEdit, onDelete, isDisabled }: StudentRowPr
       <td className="border-b border-line px-3 py-3">
         <div className="flex justify-end gap-2">
           <Button type="button" variant="secondary" onClick={handleEdit} disabled={isDisabled}>
-            Edit
+            Sửa
           </Button>
           <Button type="button" variant="ghost" onClick={handleDelete} disabled={isDisabled}>
-            {isDisabled ? 'Deleting...' : 'Delete'}
+            {isDisabled ? 'Đang xóa...' : 'Xóa'}
           </Button>
         </div>
       </td>
@@ -49,7 +49,7 @@ StudentRow.displayName = 'StudentRow';
 
 export const StudentTable = ({ students, onEdit, onDelete, disabledStudentId }: StudentTableProps) => {
   if (students.length === 0) {
-    return <EmptyState title="No students found" message="Create a student or adjust the search filters." />;
+    return <EmptyState title="Không tìm thấy học viên" message="Hãy tạo học viên mới hoặc điều chỉnh bộ lọc tìm kiếm." />;
   }
 
   return (
@@ -57,11 +57,11 @@ export const StudentTable = ({ students, onEdit, onDelete, disabledStudentId }: 
       <table className="w-full min-w-[760px] border-separate border-spacing-0 text-left text-sm">
         <thead>
           <tr className="text-xs uppercase tracking-wide text-slate-500">
-            <th className="border-b border-line px-3 py-3">Student</th>
-            <th className="border-b border-line px-3 py-3">Phone</th>
-            <th className="border-b border-line px-3 py-3">Address</th>
-            <th className="border-b border-line px-3 py-3">DOB</th>
-            <th className="border-b border-line px-3 py-3 text-right">Actions</th>
+            <th className="border-b border-line px-3 py-3">Học viên</th>
+            <th className="border-b border-line px-3 py-3">Số điện thoại</th>
+            <th className="border-b border-line px-3 py-3">Địa chỉ</th>
+            <th className="border-b border-line px-3 py-3">Ngày sinh</th>
+            <th className="border-b border-line px-3 py-3 text-right">Thao tác</th>
           </tr>
         </thead>
         <tbody>

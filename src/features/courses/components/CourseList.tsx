@@ -13,7 +13,7 @@ interface CourseListProps {
 
 export const CourseList = ({ courses, metrics, onEdit, onDelete }: CourseListProps) => {
   if (courses.length === 0) {
-    return <EmptyState title="No courses yet" message="Create a course to start accepting registrations." />;
+    return <EmptyState title="Chưa có khóa học" message="Hãy tạo khóa học để bắt đầu nhận ghi danh." />;
   }
 
   const getMetric = (courseId: string): CourseMetric | undefined =>
@@ -35,26 +35,26 @@ export const CourseList = ({ courses, metrics, onEdit, onDelete }: CourseListPro
               </div>
               <div className="flex shrink-0 gap-2">
                 <Button type="button" variant="secondary" onClick={() => onEdit(course)}>
-                  Edit
+                  Sửa
                 </Button>
                 <Button type="button" variant="ghost" onClick={() => onDelete(course)}>
-                  Delete
+                  Xóa
                 </Button>
               </div>
             </div>
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
               <div className="rounded-md bg-slate-50 p-3">
-                <div className="text-xs font-medium uppercase text-slate-500">Enrolled</div>
+                <div className="text-xs font-medium uppercase text-slate-500">Đã ghi danh</div>
                 <div className="mt-1 text-lg font-semibold text-ink">
                   {course.enrolledCount}/{course.maxStudents}
                 </div>
               </div>
               <div className="rounded-md bg-slate-50 p-3">
-                <div className="text-xs font-medium uppercase text-slate-500">Available slots</div>
+                <div className="text-xs font-medium uppercase text-slate-500">Chỗ còn trống</div>
                 <div className="mt-1 text-lg font-semibold text-ink">{metric?.availableSlots ?? 0}</div>
               </div>
               <div className="rounded-md bg-slate-50 p-3">
-                <div className="text-xs font-medium uppercase text-slate-500">Fill rate</div>
+                <div className="text-xs font-medium uppercase text-slate-500">Tỷ lệ lấp đầy</div>
                 <div className="mt-1 text-lg font-semibold text-ink">{metric?.fillPercent ?? 0}%</div>
               </div>
             </div>

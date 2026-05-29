@@ -47,7 +47,7 @@ export const updateStudent = async (
 
   const existingStudent = studentDatabase.find((student) => student.id === studentId);
   if (existingStudent === undefined) {
-    return failure('INVALID_STUDENT', 'Student was not found.');
+    return failure('INVALID_STUDENT', 'Không tìm thấy học viên.');
   }
 
   const emailResult = validateUniqueStudentEmail(values.email, studentDatabase, studentId);
@@ -73,7 +73,7 @@ export const deleteStudent = async (studentId: string): Promise<Result<string>> 
 
   const exists = studentDatabase.some((student) => student.id === studentId);
   if (!exists) {
-    return failure('INVALID_STUDENT', 'Student was not found.');
+    return failure('INVALID_STUDENT', 'Không tìm thấy học viên.');
   }
 
   studentDatabase = studentDatabase.filter((student) => student.id !== studentId);

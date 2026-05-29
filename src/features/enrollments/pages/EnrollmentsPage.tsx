@@ -18,7 +18,7 @@ export const EnrollmentsPage = () => {
 
   const handleSubmit = (values: EnrollmentFormValues) => {
     const result = createEnrollment(values);
-    addToast(result.ok ? 'Student registered.' : result.error.message, result.ok ? 'success' : 'error');
+    addToast(result.ok ? 'Đã ghi danh học viên.' : result.error.message, result.ok ? 'success' : 'error');
   };
 
   const confirmCancel = () => {
@@ -27,27 +27,27 @@ export const EnrollmentsPage = () => {
     }
 
     const result = cancelEnrollment(enrollmentToCancel);
-    addToast(result.ok ? 'Registration cancelled.' : result.error.message, result.ok ? 'success' : 'error');
+    addToast(result.ok ? 'Đã hủy lượt ghi danh.' : result.error.message, result.ok ? 'success' : 'error');
     setEnrollmentToCancel(undefined);
   };
 
   return (
     <div className="grid gap-5">
       <div>
-        <h1 className="text-2xl font-semibold text-ink">Enrollments</h1>
-        <p className="mt-1 text-sm text-slate-600">Register students while enforcing capacity and status rules.</p>
+        <h1 className="text-2xl font-semibold text-ink">Ghi danh</h1>
+        <p className="mt-1 text-sm text-slate-600">Ghi danh học viên theo đúng quy định về sức chứa và trạng thái khóa học.</p>
       </div>
-      <Panel title="Register student">
+      <Panel title="Ghi danh học viên">
         <EnrollmentForm students={students} courses={courses} onSubmit={handleSubmit} />
       </Panel>
-      <Panel title="Active registrations">
+      <Panel title="Lượt ghi danh đang hoạt động">
         <EnrollmentList rows={rows} onCancel={setEnrollmentToCancel} />
       </Panel>
       <ConfirmModal
         isOpen={enrollmentToCancel !== undefined}
-        title="Cancel registration?"
-        message="This removes the student from the course and immediately frees a slot."
-        confirmLabel="Cancel registration"
+        title="Hủy lượt ghi danh?"
+        message="Thao tác này sẽ xóa học viên khỏi khóa học và giải phóng một chỗ trống ngay lập tức."
+        confirmLabel="Hủy ghi danh"
         onCancel={() => setEnrollmentToCancel(undefined)}
         onConfirm={confirmCancel}
       />

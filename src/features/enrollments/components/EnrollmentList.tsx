@@ -10,7 +10,7 @@ interface EnrollmentListProps {
 
 export const EnrollmentList = ({ rows, onCancel }: EnrollmentListProps) => {
   if (rows.length === 0) {
-    return <EmptyState title="No registrations" message="Register a student to a course to replace spreadsheet tracking." />;
+    return <EmptyState title="Chưa có lượt ghi danh" message="Hãy ghi danh học viên vào khóa học để thay thế việc theo dõi bằng bảng tính." />;
   }
 
   return (
@@ -18,10 +18,10 @@ export const EnrollmentList = ({ rows, onCancel }: EnrollmentListProps) => {
       <table className="w-full min-w-[720px] border-separate border-spacing-0 text-left text-sm">
         <thead>
           <tr className="text-xs uppercase tracking-wide text-slate-500">
-            <th className="border-b border-line px-3 py-3">Student</th>
-            <th className="border-b border-line px-3 py-3">Course</th>
-            <th className="border-b border-line px-3 py-3">Registered</th>
-            <th className="border-b border-line px-3 py-3 text-right">Actions</th>
+            <th className="border-b border-line px-3 py-3">Học viên</th>
+            <th className="border-b border-line px-3 py-3">Khóa học</th>
+            <th className="border-b border-line px-3 py-3">Ngày ghi danh</th>
+            <th className="border-b border-line px-3 py-3 text-right">Thao tác</th>
           </tr>
         </thead>
         <tbody>
@@ -35,7 +35,7 @@ export const EnrollmentList = ({ rows, onCancel }: EnrollmentListProps) => {
               <td className="border-b border-line px-3 py-3 text-slate-700">{formatDate(row.enrollment.enrolledAt)}</td>
               <td className="border-b border-line px-3 py-3 text-right">
                 <Button type="button" variant="ghost" onClick={() => onCancel(row.enrollment.id)}>
-                  Cancel
+                  Hủy
                 </Button>
               </td>
             </tr>

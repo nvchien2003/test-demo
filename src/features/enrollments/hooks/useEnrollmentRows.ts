@@ -23,9 +23,9 @@ export const useEnrollmentRows = (
 
         return {
           enrollment,
-          studentName: student?.fullName ?? 'Unknown student',
-          studentEmail: student?.email ?? 'Missing record',
-          courseName: course?.name ?? 'Unknown course',
+          studentName: student?.fullName ?? 'Không rõ học viên',
+          studentEmail: student?.email ?? 'Thiếu hồ sơ',
+          courseName: course?.name ?? 'Không rõ khóa học',
         };
       }),
     [courses, enrollments, students],

@@ -27,7 +27,7 @@ export const CoursesPage = () => {
   const handleSubmit = (values: CourseFormValues) => {
     const result = editingCourse === undefined ? createCourse(values) : updateCourse(editingCourse.id, values);
     if (result.ok) {
-      addToast(editingCourse === undefined ? 'Course created.' : 'Course updated.');
+      addToast(editingCourse === undefined ? 'Đã tạo khóa học.' : 'Đã cập nhật khóa học.');
       closeForm();
       return;
     }
@@ -41,7 +41,7 @@ export const CoursesPage = () => {
     }
 
     const result = deleteCourse(courseToDelete.id);
-    addToast(result.ok ? 'Course and related enrollments deleted.' : result.error.message, result.ok ? 'success' : 'error');
+    addToast(result.ok ? 'Đã xóa khóa học và các lượt ghi danh liên quan.' : result.error.message, result.ok ? 'success' : 'error');
     setCourseToDelete(undefined);
   };
 
@@ -49,21 +49,21 @@ export const CoursesPage = () => {
     <div className="grid gap-5">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-ink">Courses</h1>
-          <p className="mt-1 text-sm text-slate-600">Manage capacity, availability, and course status.</p>
+          <h1 className="text-2xl font-semibold text-ink">Khóa học</h1>
+          <p className="mt-1 text-sm text-slate-600">Quản lý sức chứa, tình trạng còn chỗ và trạng thái khóa học.</p>
         </div>
         <Button type="button" onClick={() => setIsFormOpen(true)}>
-          New course
+          Thêm khóa học
         </Button>
       </div>
 
       {isFormOpen ? (
-        <Panel title={editingCourse === undefined ? 'Create course' : 'Edit course'}>
+        <Panel title={editingCourse === undefined ? 'Tạo khóa học' : 'Chỉnh sửa khóa học'}>
           <CourseForm course={editingCourse} onSubmit={handleSubmit} onCancel={closeForm} />
         </Panel>
       ) : null}
 
-      <Panel title="Course catalog">
+      <Panel title="Danh mục khóa học">
         <CourseList
           courses={courses}
           metrics={metrics}
@@ -77,8 +77,8 @@ export const CoursesPage = () => {
 
       <ConfirmModal
         isOpen={courseToDelete !== undefined}
-        title="Delete course?"
-        message="This removes the course and every related student registration."
+        title="Xóa khóa học?"
+        message="Thao tác này sẽ xóa khóa học và mọi lượt ghi danh học viên liên quan."
         onCancel={() => setCourseToDelete(undefined)}
         onConfirm={confirmDelete}
       />

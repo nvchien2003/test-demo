@@ -25,11 +25,11 @@ export const reconcileCourses = (courses: Course[], enrollments: Enrollment[]): 
 
 export const validateCourseCapacity = (course: Course): Result<Course> => {
   if (course.maxStudents < 1) {
-    return failure('INVALID_CAPACITY', 'Course capacity must be at least 1.');
+    return failure('INVALID_CAPACITY', 'Sức chứa khóa học phải tối thiểu là 1.');
   }
 
   if (course.maxStudents < course.enrolledCount) {
-    return failure('INVALID_CAPACITY', 'Capacity cannot be lower than current enrollments.');
+    return failure('INVALID_CAPACITY', 'Sức chứa không được nhỏ hơn số học viên đang ghi danh.');
   }
 
   return success(course);

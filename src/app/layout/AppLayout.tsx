@@ -8,10 +8,10 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-  { label: 'Dashboard', path: ROUTE_PATHS.dashboard },
-  { label: 'Students', path: ROUTE_PATHS.students },
-  { label: 'Courses', path: ROUTE_PATHS.courses },
-  { label: 'Enrollments', path: ROUTE_PATHS.enrollments },
+  { label: 'Tổng quan', path: ROUTE_PATHS.dashboard },
+  { label: 'Học viên', path: ROUTE_PATHS.students },
+  { label: 'Khóa học', path: ROUTE_PATHS.courses },
+  { label: 'Ghi danh', path: ROUTE_PATHS.enrollments },
 ];
 
 export const AppLayout = () => (
@@ -19,10 +19,10 @@ export const AppLayout = () => (
     <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <div>
-          <div className="text-lg font-semibold text-ink">Training Center Admin</div>
-          <div className="text-sm text-slate-500">Browser-only replacement for spreadsheet workflows</div>
+          <div className="text-lg font-semibold text-ink">Quản trị trung tâm đào tạo</div>
+          <div className="text-sm text-slate-500">Thay thế quy trình Excel, chạy hoàn toàn trên trình duyệt</div>
         </div>
-        <nav className="flex gap-2 overflow-x-auto" aria-label="Main navigation">
+        <nav className="flex gap-2 overflow-x-auto" aria-label="Điều hướng chính">
           {navigationItems.map((item) => (
             <NavLink
               key={item.path}

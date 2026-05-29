@@ -6,7 +6,7 @@ import './app/styles.css';
 const rootElement = document.getElementById('root');
 
 if (rootElement === null) {
-  throw new Error('Root element was not found.');
+  throw new Error('Không tìm thấy phần tử gốc của ứng dụng.');
 }
 
 ReactDOM.createRoot(rootElement).render(

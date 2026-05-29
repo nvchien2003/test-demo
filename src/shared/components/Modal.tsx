@@ -13,7 +13,7 @@ interface ConfirmModalProps {
 export const ConfirmModal = ({
   title,
   message,
-  confirmLabel = 'Delete',
+  confirmLabel = 'Xóa',
   isOpen,
   onCancel,
   onConfirm,
@@ -29,7 +29,7 @@ export const ConfirmModal = ({
         <p className="mt-2 text-sm leading-6 text-slate-600">{message}</p>
         <div className="mt-5 flex justify-end gap-3">
           <Button type="button" variant="secondary" onClick={onCancel}>
-            Cancel
+            Hủy
           </Button>
           <Button type="button" variant="danger" onClick={onConfirm}>
             {confirmLabel}
@@ -68,9 +68,9 @@ export const DialogModal = ({ title, isOpen, children, onClose }: DialogModalPro
             type="button"
             onClick={onClose}
             className="rounded-md px-2 py-1 text-sm font-medium text-slate-500 hover:bg-slate-100 hover:text-ink"
-            aria-label="Close modal"
+            aria-label="Đóng hộp thoại"
           >
-            Close
+            Đóng
           </button>
         </div>
         {children}

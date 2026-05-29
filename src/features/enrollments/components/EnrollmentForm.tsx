@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Button } from '../../../shared/components/Button';
 import { SelectField } from '../../../shared/components/Field';
 import { StatusBadge } from '../../../shared/components/StatusBadge';
+import { COURSE_STATUS_LABELS } from '../../../shared/constants/courseStatus';
 import type { Course } from '../../courses/types';
 import type { Student } from '../../students/types';
 import { enrollmentFormSchema, type EnrollmentFormValues } from '../validations';
@@ -34,25 +35,25 @@ export const EnrollmentForm = ({ students, courses, onSubmit }: EnrollmentFormPr
       className="grid gap-4 lg:grid-cols-[1fr_1fr_auto]"
       onSubmit={(event) => void handleSubmit(submitForm)(event)}
     >
-      <SelectField label="Student" error={errors.studentId?.message} {...register('studentId')}>
-        <option value="">Select student</option>
+      <SelectField label="Học viên" error={errors.studentId?.message} {...register('studentId')}>
+        <option value="">Chọn học viên</option>
         {students.map((student) => (
           <option key={student.id} value={student.id}>
             {student.fullName} ({student.email})
           </option>
         ))}
       </SelectField>
-      <SelectField label="Course" error={errors.courseId?.message} {...register('courseId')}>
-        <option value="">Select course</option>
+      <SelectField label="Khóa học" error={errors.courseId?.message} {...register('courseId')}>
+        <option value="">Chọn khóa học</option>
         {courses.map((course) => (
           <option key={course.id} value={course.id}>
-            {course.name} - {course.status}
+            {course.name} - {COURSE_STATUS_LABELS[course.status]}
           </option>
         ))}
       </SelectField>
       <div className="flex items-end">
         <Button type="submit" className="w-full lg:w-auto" disabled={isSubmitting}>
-          Register
+          Ghi danh
         </Button>
       </div>
       <div className="lg:col-span-3 flex flex-wrap gap-2">

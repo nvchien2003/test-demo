@@ -8,6 +8,6 @@ export const failure = <T>(code: AppErrorCode, message: string): Result<T> => ({
 });
 
 export const getResultMessage = <T>(result: Result<T>): string =>
-  result.ok ? 'Saved successfully.' : result.error.message;
+  result.ok ? 'Đã lưu thành công.' : result.error.message;
 
 export const toError = (code: AppErrorCode, message: string): AppError => ({ code, message });

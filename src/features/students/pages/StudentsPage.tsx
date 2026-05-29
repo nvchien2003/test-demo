@@ -27,7 +27,7 @@ export const StudentsPage = () => {
       selectedStudent === undefined ? await createStudent(values) : await updateStudent(selectedStudent.id, values);
 
     if (result.ok) {
-      addToast(selectedStudent === undefined ? 'Student created.' : 'Student updated.');
+      addToast(selectedStudent === undefined ? 'Đã tạo học viên.' : 'Đã cập nhật học viên.');
       closeModal();
       return;
     }
@@ -42,7 +42,7 @@ export const StudentsPage = () => {
 
     setDeletingStudentId(studentToDelete.id);
     const result = await deleteStudent(studentToDelete.id);
-    addToast(result.ok ? 'Student and related enrollments deleted.' : result.error.message, result.ok ? 'success' : 'error');
+    addToast(result.ok ? 'Đã xóa học viên và các lượt ghi danh liên quan.' : result.error.message, result.ok ? 'success' : 'error');
     setDeletingStudentId(undefined);
     setStudentToDelete(undefined);
   };
@@ -51,11 +51,11 @@ export const StudentsPage = () => {
     <div className="grid gap-5">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-ink">Students</h1>
-          <p className="mt-1 text-sm text-slate-600">Create, search, and maintain student records.</p>
+          <h1 className="text-2xl font-semibold text-ink">Học viên</h1>
+          <p className="mt-1 text-sm text-slate-600">Tạo, tìm kiếm và quản lý hồ sơ học viên.</p>
         </div>
         <Button type="button" onClick={openCreateModal}>
-          New student
+          Thêm học viên
         </Button>
       </div>
 
@@ -67,13 +67,13 @@ export const StudentsPage = () => {
       />
 
       <Panel
-        title="Student directory"
+        title="Danh sách học viên"
         actions={
           <TextField
-            label="Search"
+            label="Tìm kiếm"
             value={search}
             onChange={(event) => setSearch(event.target.value)}
-            placeholder="Name, email, or phone"
+            placeholder="Tên, email hoặc số điện thoại"
           />
         }
       >
@@ -87,8 +87,8 @@ export const StudentsPage = () => {
 
       <ConfirmModal
         isOpen={studentToDelete !== undefined}
-        title="Delete student?"
-        message="This removes the student and every related course registration."
+        title="Xóa học viên?"
+        message="Thao tác này sẽ xóa học viên và mọi lượt ghi danh khóa học liên quan."
         onCancel={() => setStudentToDelete(undefined)}
         onConfirm={() => void confirmDelete()}
       />

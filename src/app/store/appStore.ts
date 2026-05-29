@@ -113,7 +113,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const state = get();
     const existingCourse = state.courses.find((course) => course.id === courseId);
     if (existingCourse === undefined) {
-      return failure('INVALID_COURSE', 'Course was not found.');
+      return failure('INVALID_COURSE', 'Không tìm thấy khóa học.');
     }
 
     const candidate = normalizeCourse({
@@ -137,7 +137,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const state = get();
     const exists = state.courses.some((course) => course.id === courseId);
     if (!exists) {
-      return failure('INVALID_COURSE', 'Course was not found.');
+      return failure('INVALID_COURSE', 'Không tìm thấy khóa học.');
     }
 
     const enrollments = removeEnrollmentsByCourse(courseId, state.enrollments);
@@ -170,7 +170,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const state = get();
     const exists = state.enrollments.some((enrollment) => enrollment.id === enrollmentId);
     if (!exists) {
-      return failure('INVALID_COURSE', 'Registration was not found.');
+      return failure('INVALID_COURSE', 'Không tìm thấy lượt ghi danh.');
     }
 
     const enrollments = state.enrollments.filter((enrollment) => enrollment.id !== enrollmentId);

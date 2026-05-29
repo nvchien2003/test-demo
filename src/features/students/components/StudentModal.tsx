@@ -13,7 +13,7 @@ interface StudentModalProps {
 export const StudentModal = ({ student, isOpen, onClose, onSubmit }: StudentModalProps) => (
   <DialogModal
     isOpen={isOpen}
-    title={student === undefined ? 'Create student' : 'Edit student'}
+    title={student === undefined ? 'Tạo học viên' : 'Chỉnh sửa học viên'}
     onClose={onClose}
   >
     <StudentForm student={student} onSubmit={onSubmit} onCancel={onClose} />

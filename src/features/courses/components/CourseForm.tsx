@@ -37,26 +37,26 @@ export const CourseForm = ({ course, onSubmit, onCancel }: CourseFormProps) => {
   return (
     <form className="grid gap-4" onSubmit={(event) => void handleSubmit(onSubmit)(event)}>
       <div className="grid gap-4 lg:grid-cols-[1fr_180px_180px]">
-        <TextField label="Course name" error={errors.name?.message} {...register('name')} />
+        <TextField label="Tên khóa học" error={errors.name?.message} {...register('name')} />
         <TextField
-          label="Maximum students"
+          label="Số học viên tối đa"
           type="number"
           min={1}
           error={errors.maxStudents?.message}
           {...register('maxStudents')}
         />
-        <SelectField label="Status" error={errors.status?.message} {...register('status')}>
-          <option value="OPEN">Open</option>
-          <option value="CLOSED">Closed</option>
+        <SelectField label="Trạng thái" error={errors.status?.message} {...register('status')}>
+          <option value="OPEN">Đang mở</option>
+          <option value="CLOSED">Đã đóng</option>
         </SelectField>
       </div>
-      <TextareaField label="Description" error={errors.description?.message} {...register('description')} />
+      <TextareaField label="Mô tả" error={errors.description?.message} {...register('description')} />
       <div className="flex justify-end gap-3">
         <Button type="button" variant="secondary" onClick={onCancel}>
-          Cancel
+          Hủy
         </Button>
         <Button type="submit" disabled={isSubmitting}>
-          {course === undefined ? 'Create course' : 'Save changes'}
+          {course === undefined ? 'Tạo khóa học' : 'Lưu thay đổi'}
         </Button>
       </div>
     </form>
